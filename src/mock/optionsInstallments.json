@@ -1,0 +1,46 @@
+[
+  {
+    "id": "woovi1",
+    "installments": 1,
+    "valueInstallment": 30500,
+    "total": 30500,
+    "promotion": "🤑 R$ 300,00 de volta no seu Pix na hora"
+  },
+  {
+    "id": "woovi2",
+    "installments": 2,
+    "valueInstallment": 15300,
+    "total": 30600
+  },
+  {
+    "id": "woovi3",
+    "installments": 3,
+    "valueInstallment": 10196.66,
+    "total": 30620
+  },
+  {
+    "id": "woovi4",
+    "installments": 4,
+    "valueInstallment": 7725,
+    "total": 30900,
+    "promotion": "-3% de juros: Melhor opção de parcelamento"
+  },
+  {
+    "id": "woovi5",
+    "installments": 5,
+    "valueInstallment": 6300,
+    "total": 31500
+  },
+  {
+    "id": "woovi6",
+    "installments": 6,
+    "valueInstallment": 5283.33,
+    "total": 31699.98
+  },
+  {
+    "id": "woovi7",
+    "installments": 7,
+    "valueInstallment": 4542.85,
+    "total": 31800
+  }
+]
