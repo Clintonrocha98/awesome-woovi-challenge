@@ -1,8 +1,6 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
+import { PropType } from "../types/childrenPropType";
 
-type PropType = {
-  children: React.ReactNode;
-};
 export type PaymentPropsType = {
   id: string;
   installments: number;
@@ -11,18 +9,33 @@ export type PaymentPropsType = {
   promotion?: string | null;
 };
 
-type PaymentContextType = {
-  payment: PaymentPropsType | null;
-  setPayment: React.Dispatch<React.SetStateAction<PaymentPropsType | null>>;
+type Nullable<T> = T | null | undefined;
+
+export type PaymentContextType = {
+  payment: Nullable<PaymentPropsType>;
+  updateOptionPayment: (option: PaymentPropsType) => void;
 };
 
-export const PaymentContext = createContext({} as PaymentContextType);
+export const PaymentContext = createContext<PaymentContextType | undefined>(
+  undefined
+);
 
 export function PaymentProvider({ children }: PropType) {
-  const [payment, setPayment] = useState<PaymentPropsType | null>(null);
+  const [payment, setPayment] = useState<Nullable<PaymentPropsType>>(() => {
+    const storedPayment = localStorage.getItem("payment");
+    return storedPayment ? JSON.parse(storedPayment) : null;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("payment", JSON.stringify(payment));
+  }, [payment]);
+
+  const updateOptionPayment = (option: PaymentPropsType) => {
+    setPayment(option);
+  };
 
   return (
-    <PaymentContext.Provider value={{ payment, setPayment }}>
+    <PaymentContext.Provider value={{ payment, updateOptionPayment }}>
       {children}
     </PaymentContext.Provider>
   );

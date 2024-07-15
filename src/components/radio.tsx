@@ -17,7 +17,6 @@ const RadioOption: React.FC<RadioOptionProps> = ({
   onOptionChange,
 }) => {
   const isChecked = selectedOption === option.id;
-
   const isFirst = option.installments === 1 && "mb-8 shadow rounded-lg";
   const isSecond = option.installments === 2 && "rounded-t-lg";
   const isLast = option.installments === 7 && "rounded-b-lg";

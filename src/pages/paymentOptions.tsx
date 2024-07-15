@@ -1,24 +1,25 @@
 import { useState } from "react";
 import { PaymentPropsType } from "../context/paymentContext";
 import optionsInstallmentsData from "../mock/optionsInstallments.json";
-import usePaymentContext from "../hook/usePaymentContext";
 import RadioOption from "../components/radio";
+import TitlePage from "../components/title-page";
+import usePaymentContext from "../hook/usePaymentContext";
 
 const optionsInstallments: PaymentPropsType[] = optionsInstallmentsData;
 
-const PaymentOptions = () => {
+export default function PaymentOptions() {
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const { setPayment } = usePaymentContext();
+  const { updateOptionPayment } = usePaymentContext();
 
   const handleOptionChange = (payment: PaymentPropsType) => {
+    updateOptionPayment(payment);
     setSelectedOption(payment.id);
-    setPayment(payment);
   };
+
   return (
     <div>
-      <h1 className=" my-8 text-2xl font-extrabold text-center">
-        João, como você quer pagar?
-      </h1>
+      <TitlePage>João, como você quer pagar?</TitlePage>
+
       <div className="flex flex-col items-center px-2 mb-5">
         {optionsInstallments.map((option) => (
           <RadioOption
@@ -29,8 +30,7 @@ const PaymentOptions = () => {
           />
         ))}
       </div>
+      <a href="/pix">pix page aaaaaaaaaaaaaaaaaaaa</a>
     </div>
   );
-};
-
-export default PaymentOptions;
+}

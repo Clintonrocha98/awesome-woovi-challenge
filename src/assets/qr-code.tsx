@@ -3,8 +3,7 @@ function QrCode() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="332"
-      height="332"
+      height="350"
       fill="none"
       viewBox="0 0 332 332"
     >

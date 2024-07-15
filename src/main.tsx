@@ -1,19 +1,17 @@
 import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
 import { PaymentProvider } from "./context/paymentContext.tsx";
 import { ContainerApp } from "./components/containerApp.tsx";
-import { BrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/routes.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <PaymentProvider>
-        <ContainerApp>
-          <App />
-        </ContainerApp>
-      </PaymentProvider>
-    </BrowserRouter>
+    <PaymentProvider>
+      <ContainerApp>
+        <RouterProvider router={router} />
+      </ContainerApp>
+    </PaymentProvider>
   </React.StrictMode>
 );
